@@ -218,10 +218,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
                     <div class="heading heading-2 text-center">
                         <div class="heading-bg">
-                            <p class="mb-0">all about me</p>
-                            <h2>my story</h2>
+                            <p class="mb-0">Semua tentang perusahaan kami</p>
+						    <h2>perusahaan kami</h2>
                         </div>
-                        <p class="mb-0">Razen Project is a leading developer of A-grade commercial, industrial and residential projects in USA. Since its foundation the company has doubled its turnover year on year, with its staff numbers swelling accordingly.</p>
+                        <p class="mb-0">Razen Project berkembang dibidang jasa design dan konstruksi, terdiri dari design arsitektur, design interior, perencanaan struktur, serta pembuatan bangunan yang berlokasi di Pasar Rebo Jakarta Timur. Kami sebagai kontraktor mengerjakan proyek-proyek konstruksi dengan tepat waktu sesuai time schedule, standar kualitas yang kami berikan adalah yang terbaik.</p>
                     </div>
                     <!-- .heading end -->
                 </div>
@@ -235,13 +235,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-1" aria-expanded="true" aria-controls="collapse02-1"> About Razen Project </a>
+                                    <a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-1" aria-expanded="true" aria-controls="collapse02-1"> Tentang Razen Project </a>
                                     <span class="icon"></span>
                                 </h4>
                             </div>
                             <div id="collapse02-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                 <div class="panel-body">
-                                    Since its foundation the company has doubled its turnover year on year, with its staff numbers swelling accordingly.Today Razen Project has over 4,000 professionals.Razen Project has a team of specialists capable of maximizing the result.
+                                    {{$about->about}}
                                 </div>
                             </div>
                         </div>
@@ -250,12 +250,12 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-2" aria-expanded="false" aria-controls="collapse02-2"> Our Mission </a>
+                                    <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-2" aria-expanded="false" aria-controls="collapse02-2"> Misi Kami </a>
                                 </h4>
                             </div>
                             <div id="collapse02-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="panel-body">
-                                    We do only what we are great on. If we tackle a project you can be 100% sure that it will be delivered right on time, within the set budget limits and at the top level. We get all our liabilities insured, including third-party liabilities, thus indemnifying our clients against all risks.
+                                    {{$about->misi}}
                                 </div>
                             </div>
                         </div>
@@ -264,12 +264,12 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-3" aria-expanded="false" aria-controls="collapse02-3"> Our Goals </a>
+                                    <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-3" aria-expanded="false" aria-controls="collapse02-3"> Tujuan Kami </a>
                                 </h4>
                             </div>
                             <div id="collapse02-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                 <div class="panel-body">
-                                    Razen Project is a leading developer of A-grade commercial,its foundation the company has doubled its turnover year on year industrial and residential projects in USA. Since its foundation the company has doubled its turnover year on year, with its staff numbers swelling accordingly.
+                                    {{$about->tujuan}}
                                 </div>
                             </div>
                         </div>
@@ -282,18 +282,14 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="feature">
-                        <h4 class="text-uppercase">Reliability</h4>
-                        <p>Razen Project has a cutting edge quality management system which ensures high quality standards at all sites.</p>
-                    </div>
-                    <div class="feature">
-                        <h4 class="text-uppercase">Expertise</h4>
-                        <p>We have a team of specialists capable of maximizing the result and delivering the projects of any complexity.</p>
-                    </div>
-                    <div class="feature last">
-                        <h4 class="text-uppercase">Quality</h4>
-                        <p>The control mechanism allows secure &amp; integrated monitoring of all stages of the works.</p>
-                    </div>
+                    @if ($pivot_about['status'] == 'ada')
+                        @foreach ($pivot_about['pivot'] as $item)
+                            <div class="feature">
+                                <h4 class="text-uppercase">{{$item->judul}}</h4>
+                                <p>{{$item->deskripsi}}</p>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -330,7 +326,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="heading heading-2 mb-0 text-center">
                         <div class="heading-bg">
-                            <h2>Why Razen Project</h2>
+                            <h2>Kenapa Razen Project</h2>
                         </div>
                     </div>
                     <!-- .heading end -->

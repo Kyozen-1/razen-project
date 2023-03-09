@@ -48,74 +48,70 @@
 		</div>
 		<!-- .row end -->
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<div class="panel-group accordion" id="accordion02" role="tablist" aria-multiselectable="true">
+            <div class="col-xs-12 col-sm-4 col-md-6">
+                <div class="panel-group accordion" id="accordion02" role="tablist" aria-multiselectable="true">
 
-					<!-- Panel 01 -->
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
-							<h4 class="panel-title">
-								<a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-1" aria-expanded="true" aria-controls="collapse02-1"> Tentang Razen Project </a>
-								<span class="icon"></span>
-							</h4>
-						</div>
-						<div id="collapse02-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
-								Since its foundation the company has doubled its turnover year on year, with its staff numbers swelling accordingly.Today Yellow Hats has over 4,000 professionals.Yellow Hats has a team of specialists capable of maximizing the result.
-							</div>
-						</div>
-					</div>
+                    <!-- Panel 01 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-1" aria-expanded="true" aria-controls="collapse02-1"> Tentang Razen Project </a>
+                                <span class="icon"></span>
+                            </h4>
+                        </div>
+                        <div id="collapse02-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                {{$about->about}}
+                            </div>
+                        </div>
+                    </div>
 
-					<!-- Panel 02 -->
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title">
-								<a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-2" aria-expanded="false" aria-controls="collapse02-2"> Misi Kami </a>
-							</h4>
-						</div>
-						<div id="collapse02-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body">
-								We do only what we are great on. If we tackle a project you can be 100% sure that it will be delivered right on time, within the set budget limits and at the top level. We get all our liabilities insured, including third-party liabilities, thus indemnifying our clients against all risks.
-							</div>
-						</div>
-					</div>
+                    <!-- Panel 02 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-2" aria-expanded="false" aria-controls="collapse02-2"> Misi Kami </a>
+                            </h4>
+                        </div>
+                        <div id="collapse02-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                {{$about->misi}}
+                            </div>
+                        </div>
+                    </div>
 
-					<!-- Panel 03 -->
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingThree">
-							<h4 class="panel-title">
-								<a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-3" aria-expanded="false" aria-controls="collapse02-3"> Tujuan Kami </a>
-							</h4>
-						</div>
-						<div id="collapse02-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-							<div class="panel-body">
-								Yellow Hats is a leading developer of A-grade commercial,its foundation the company has doubled its turnover year on year industrial and residential projects in USA. Since its foundation the company has doubled its turnover year on year, with its staff numbers swelling accordingly.
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End .Accordion-->
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-sm">
-				<div class="feature">
-					<img class="img-responsive" src="{{ asset('razen-project/assets/images/features/2.jpg') }}" alt="feature">
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
-				<div class="feature">
-					<h4 class="text-uppercase">Reliability</h4>
-					<p>Yellow Hats has a cutting edge quality management system which ensures high quality standards at all sites.</p>
-				</div>
-				<div class="feature">
-					<h4 class="text-uppercase">Expertise</h4>
-					<p>We have a team of specialists capable of maximizing the result and delivering the projects of any complexity.</p>
-				</div>
-				<div class="feature last">
-					<h4 class="text-uppercase">Quality</h4>
-					<p>The control mechanism allows secure &amp; integrated monitoring of all stages of the works.</p>
-				</div>
-			</div>
-		</div>
+                    <!-- Panel 03 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-3" aria-expanded="false" aria-controls="collapse02-3"> Tujuan Kami </a>
+                            </h4>
+                        </div>
+                        <div id="collapse02-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                {{$about->tujuan}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .Accordion-->
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3 hidden-xs">
+                <div class="feature">
+                    <img class="img-responsive" src="{{ asset('razen-project/assets/images/features/2.jpg') }}" alt="feature">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                @if ($pivot_about['status'] == 'ada')
+                    @foreach ($pivot_about['pivot'] as $item)
+                        <div class="feature">
+                            <h4 class="text-uppercase">{{$item->judul}}</h4>
+                            <p>{{$item->deskripsi}}</p>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
 	</div>
 </section>
 
@@ -176,8 +172,8 @@
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="heading heading-2 text-center">
 					<div class="heading-bg">
-						<p class="mb-0">acreative brains</p>
-						<h2>our team</h2>
+						<p class="mb-0">Otak Kreatif</p>
+						<h2>Tim Kami</h2>
 					</div>
 				</div>
 				<!-- .heading end -->

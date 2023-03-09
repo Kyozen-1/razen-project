@@ -81,9 +81,8 @@ Route::prefix('razen-project')->group(function(){
 
     Route::prefix('tentang-perusahaan')->group(function(){
         Route::get('/', 'RazenProject\Admin\TentangPerusahaanController@index')->name('razen-project.admin.tentang-perusahaan.index');
-        Route::get('/detail/{id}', 'RazenProject\Admin\TentangPerusahaanController@show');
         Route::post('/','RazenProject\Admin\TentangPerusahaanController@store')->name('razen-project.admin.tentang-perusahaan.store');
-        Route::get('/edit/{id}','RazenProject\Admin\TentangPerusahaanController@edit');
-        Route::post('/update','RazenProject\Admin\TentangPerusahaanController@update')->name('razen-project.admin.tentang-perusahaan.update');
+        Route::post('/edit-pivot-about','RazenProject\Admin\TentangPerusahaanController@edit_pivot_about')->name('razen-project.admin.tentang-perusahaan.edit_pivot_about');
+        Route::post('/add-pivot-about','RazenProject\Admin\TentangPerusahaanController@add_pivot_about')->name('razen-project.admin.tentang-perusahaan.add_pivot_about');
     });
 });

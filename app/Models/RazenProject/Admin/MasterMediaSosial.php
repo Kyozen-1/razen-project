@@ -13,4 +13,9 @@ class MasterMediaSosial extends Model
     {
         return $this->hasMany('App\Models\RazenProject\Admin\PivotProfilRazenProjectMediaSosial', 'master_media_sosial_id');
     }
+
+    public function pivot_razen_project_section_tim_media_sosial()
+    {
+        return $this->hasMany('App\Models\RazenProject\Admin\PivotRazenProjectSectionTimMediaSosial','master_media_sosial_id');
+    }
 }

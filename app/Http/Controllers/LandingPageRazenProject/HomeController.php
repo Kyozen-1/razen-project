@@ -22,6 +22,8 @@ use App\Models\RazenProject\Admin\RazenProjectTestimonial as Testimonial;
 use App\Models\RazenProject\Admin\RazenProjectClient as Client;
 use App\Models\RazenProject\Admin\RazenProjectHeroSlider as HeroSlider;
 use App\Models\RazenProject\Admin\RazenProjectLayanan as Layanan;
+use App\Models\RazenProject\Admin\RazenProjectAbout as About;
+use App\Models\RazenProject\Admin\PivotRazenProjectAbout as PivotAbout;
 
 class HomeController extends Controller
 {
@@ -97,6 +99,23 @@ class HomeController extends Controller
 
         $layanans = Layanan::all()->random(3);
 
+        $about = About::first();
+
+        $cek_pivot_about = PivotAbout::where('razen_project_about_id', $about->id)->first();
+        $pivot_about = [];
+        if($cek_pivot_about)
+        {
+            $pivot_about = [
+                'status' => 'ada',
+                'pivot' => PivotAbout::where('razen_project_about_id', $about->id)->get()
+            ];
+        } else {
+            $pivot_about = [
+                'status' => 'tidak_ada',
+                'pivot' => ''
+            ];
+        }
+
         return view('landing-page-razen-project.index', [
             'profil' => $profil,
             'facebook' => $facebook,
@@ -108,7 +127,9 @@ class HomeController extends Controller
             'testimonials' => $testimonials,
             'clients' => $clients,
             'hero_sliders' => $hero_sliders,
-            'layanans' => $layanans
+            'layanans' => $layanans,
+            'about' => $about,
+            'pivot_about' => $pivot_about
         ]);
     }
 
@@ -172,12 +193,31 @@ class HomeController extends Controller
             ];
         }
 
+        $about = About::first();
+
+        $cek_pivot_about = PivotAbout::where('razen_project_about_id', $about->id)->first();
+        $pivot_about = [];
+        if($cek_pivot_about)
+        {
+            $pivot_about = [
+                'status' => 'ada',
+                'pivot' => PivotAbout::where('razen_project_about_id', $about->id)->get()
+            ];
+        } else {
+            $pivot_about = [
+                'status' => 'tidak_ada',
+                'pivot' => ''
+            ];
+        }
+
         return view('landing-page-razen-project.perusahaan', [
             'profil' => $profil,
             'facebook' => $facebook,
             'twitter' => $twitter,
             'instagram' => $instagram,
-            'youtube' => $youtube
+            'youtube' => $youtube,
+            'about' => $about,
+            'pivot_about' => $pivot_about
         ]);
     }
 
