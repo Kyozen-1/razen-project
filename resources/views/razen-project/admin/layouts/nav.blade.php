@@ -109,9 +109,20 @@
                     </a>
                 </li>
                 <li>
+                    @if (request()->routeIs('razen-project.admin.tim.index'))
+                        <a href="{{ route('razen-project.admin.tim.index') }}" class="active">
+                    @else
+                        <a href="{{ route('razen-project.admin.tim.index') }}">
+                    @endif
+                        <i data-acorn-icon="user" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Tim</span>
+                    </a>
+                </li>
+                <li>
                     @if (request()->routeIs('razen-project.admin.hero-slider.index') ||
                     request()->routeIs('razen-project.admin.layanan.index') ||
-                    request()->routeIs('razen-project.admin.tentang-perusahaan.index'))
+                    request()->routeIs('razen-project.admin.tentang-perusahaan.index') ||
+                    request()->routeIs('razen-project.admin.fitur-perusahaan.index'))
                     <a href="#section" class="active">
                     @else
                     <a href="#section">
@@ -149,11 +160,22 @@
                                 <span class="label">Tentang Perusahaan</span>
                             </a>
                         </li>
+
+                        <li>
+                            @if (request()->routeIs('razen-project.admin.fitur-perusahaan.index'))
+                                <a href="{{ route('razen-project.admin.fitur-perusahaan.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-project.admin.fitur-perusahaan.index') }}">
+                            @endif
+                                <span class="label">Fitur Perusahaan</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>
                     @if (request()->routeIs('razen-project.admin.master-media-sosial.index') ||
-                    request()->routeIs('razen-project.admin.master-kategori-project.index'))
+                    request()->routeIs('razen-project.admin.master-kategori-project.index') ||
+                    request()->routeIs('razen-project.admin.master-jabatan-tim.index'))
                     <a href="#master" class="active">
                     @else
                     <a href="#master">
@@ -178,6 +200,15 @@
                                 <a href="{{ route('razen-project.admin.master-kategori-project.index') }}">
                             @endif
                                 <span class="label">Kategori Project</span>
+                            </a>
+                        </li>
+                        <li>
+                            @if (request()->routeIs('razen-project.admin.master-jabatan-tim.index'))
+                                <a href="{{ route('razen-project.admin.master-jabatan-tim.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-project.admin.master-jabatan-tim.index') }}">
+                            @endif
+                                <span class="label">Jabatan Tim</span>
                             </a>
                         </li>
                     </ul>

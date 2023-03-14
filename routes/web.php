@@ -32,6 +32,8 @@ Route::get('/perusahaan', 'LandingPageRazenProject\HomeController@perusahaan')->
 Route::get('/layanan', 'LandingPageRazenProject\HomeController@layanan')->name('layanan');
 Route::get('/proyek', 'LandingPageRazenProject\HomeController@proyek')->name('proyek');
 Route::get('/kontak', 'LandingPageRazenProject\HomeController@kontak')->name('kontak');
+Route::get('/blog', 'LandingPageRazenProject\HomeController@blog')->name('blog');
+Route::post('/kontak-kami', 'LandingPageRazenProject\HomeController@kontak_kami')->name('kontak-kami');
 
 Route::group(['middleware' => 'auth:razen_project'], function(){
     @include('razen-project.php');

@@ -1,6 +1,9 @@
 @extends('landing-page-razen-project.layouts.app')
 
 @section('content')
+@php
+    use App\Models\RazenProject\Admin\PivotRazenProjectSectionTimMediaSosial;
+@endphp
 <!-- Page Title
 ============================================= -->
 <section class="bg-overlay bg-overlay-gradient pb-0">
@@ -123,38 +126,27 @@
 			<div class="col-md-6 col-content">
 				<div class="heading heading-4 mb-lg">
 					<div class="heading-bg heading-right">
-						<p class="mb-0">We Are Yellow Hats</p>
-						<h2>We Innovate &amp; Design</h2>
+						<p class="mb-0">{{$fitur_perusahaan->judul_pendek}}</p>
+						<h2>{{$fitur_perusahaan->judul}}</h2>
 					</div>
 				</div>
 				<!-- .heading end -->
 				<div class="row pr-sm">
-					<div class="col-xs-12 col-sm-12 col-md-6 feature feature-1">
-						<h4 class="text-uppercase font-16">Always Available</h4>
-						<p>all construction sites open for visitors, with 24/7 video surveillance being conducted at all objects</p>
-					</div>
-					<!-- .col-md-6 end -->
-					<div class="col-xs-12 col-sm-12 col-md-6 feature feature-1">
-						<h4 class="text-uppercase font-16">Qualified Agents</h4>
-						<p>We have a team of specialists capable of maximizing the result and delivering the projects</p>
-					</div>
-					<!-- .col-md-6 end -->
-					<div class="col-xs-12 col-sm-12 col-md-6 feature feature-1 mb-0">
-						<h4 class="text-uppercase font-16">Fair Prices</h4>
-						<p>you can be 100% sure that it will be delivered right on time, within the set budget limits</p>
-					</div>
-					<!-- .col-md-6 end -->
-					<div class="col-xs-12 col-sm-12 col-md-6 feature  feature-1 mb-0">
-						<h4 class="text-uppercase font-16">Best Offers</h4>
-						<p>All aspects of the operations being transparent and clear for clients and partners</p>
-					</div>
+                    @if ($pivot_fitur_perusahaan['status'] == 'ada')
+                        @foreach ($pivot_fitur_perusahaan['pivot'] as $item)
+                            <div class="col-xs-12 col-sm-12 col-md-6 feature feature-1">
+                                <h4 class="text-uppercase font-16">{{$item->judul}}</h4>
+                                <p>{{$item->deskripsi}}</p>
+                            </div>
+                        @endforeach
+                    @endif
 				</div>
 				<!-- .row end -->
 			</div>
 			<!-- .col-md-6 end -->
 			<div class="col-md-6 col-img">
 				<div class="col-bg">
-					<img src="{{ asset('razen-project/assets/images/features/1.jpg') }}" alt="Background"/>
+					<img src="{{ asset('images/razen-project/gambar-fitur-perusahaan/'.$fitur_perusahaan->gambar) }}" alt="Background"/>
 				</div>
 			</div>
 			<!-- .col-md-6 end -->
@@ -181,89 +173,27 @@
 			<!-- .col-md-8 end -->
 			<div class="clearfix">
 			</div>
-			<!-- Member #1 -->
-			<div class="col-xs-12 col-sm-6 col-md-3 member mb-0">
-				<div class="member-img">
-					<img src="{{ asset('razen-project/assets/images/team/grid/1.jpg') }}" alt="member"/>
-					<div class="member-bg">
-					</div>
-					<div class="member-overlay">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-					</div>
-				</div>
-				<!-- .member-img end -->
-				<div class="member-bio">
-					<h3>Mahmoud Baghagho</h3>
-					<p>CEO & Founder</p>
-				</div>
-				<!-- .member-bio end -->
-			</div>
-			<!-- .member end -->
-
-			<!-- Member #2 -->
-			<div class="col-xs-12 col-sm-6 col-md-3 member mb-0">
-				<div class="member-img">
-					<img src="{{ asset('razen-project/assets/images/team/grid/2.jpg') }}" alt="member"/>
-					<div class="member-bg">
-					</div>
-					<div class="member-overlay">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-					</div>
-				</div>
-				<!-- .member-img end -->
-				<div class="member-bio">
-					<h3>Mohamed Habaza</h3>
-					<p>Machine Engineer</p>
-				</div>
-				<!-- .member-bio end -->
-			</div>
-			<!-- .member end -->
-
-			<!-- Member #3 -->
-			<div class="col-xs-12 col-sm-6 col-md-3 member mb-0">
-				<div class="member-img">
-					<img src="{{ asset('razen-project/assets/images/team/grid/3.jpg') }}" alt="member"/>
-					<div class="member-bg">
-					</div>
-					<div class="member-overlay">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-					</div>
-				</div>
-				<!-- .member-img end -->
-				<div class="member-bio">
-					<h3>Ahmed Hassan</h3>
-					<p>Civil Engineer</p>
-				</div>
-				<!-- .member-bio end -->
-			</div>
-			<!-- .member end -->
-
-			<!-- Member #4 -->
-			<div class="col-xs-12 col-sm-6 col-md-3 member mb-0">
-				<div class="member-img">
-					<img src="{{ asset('razen-project/assets/images/team/grid/4.jpg') }}" alt="member"/>
-					<div class="member-bg">
-					</div>
-					<div class="member-overlay">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-					</div>
-				</div>
-				<!-- .member-img end -->
-				<div class="member-bio">
-					<h3>Fouad Badawy</h3>
-					<p>Project Manager</p>
-				</div>
-				<!-- .member-bio end -->
-			</div>
-			<!-- .member end -->
+            @foreach ($tims as $tim)
+                <!-- Member #1 -->
+                <div class="col-xs-12 col-sm-6 col-md-3 member mb-0">
+                    <div class="member-img">
+                        <img src="{{ asset('images/razen-project/gambar-tim/'. $tim->gambar) }}" alt="member"/>
+                        <div class="member-bg">
+                        </div>
+                        <div class="member-overlay">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <!-- .member-img end -->
+                    <div class="member-bio">
+                        <h3>{{$tim->nama}}</h3>
+                        <p>{{$tim->master_jabatan_tim->nama}}</p>
+                    </div>
+                    <!-- .member-bio end -->
+                </div>
+            @endforeach
 
 		</div>
 		<!-- .row end -->
@@ -282,17 +212,17 @@
 			<div class="col-xs-12 col-sm-3 col-md-3">
 				<div class="facts-box">
 					<div class="counter">
-						5000
+						{{$jumlah_proyek}}
 					</div>
-					<h4 class="text-uppercase">projects completed</h4>
+					<h4 class="text-uppercase">Proyek</h4>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-3 col-md-3">
 				<div class="facts-box">
 					<div class="counter">
-						1325
+						{{$jumlah_tim}}
 					</div>
-					<h4 class="text-uppercase">Workers Employed</h4>
+					<h4 class="text-uppercase">Tim</h4>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-3 col-md-3">
@@ -385,64 +315,26 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="heading heading-2 text-center">
-					<div class="heading-bg">
-						<p class="mb-0">They Always Trust Us</p>
-						<h2>Our Clients</h2>
-					</div>
-				</div>
+                    <div class="heading-bg">
+                        <p class="mb-0">Mereka Selalu Percaya Kami</p>
+                        <h2>Klien Kami</h2>
+                    </div>
+                </div>
 				<!-- .heading end -->
 			</div>
 			<!-- .col-md-12 end -->
 		</div>
 		<!-- .row end -->
 		<div class="row">
-			<!-- Client Item -->
-			<div class="col-xs-12 col-sm-4 col-md-2">
-				<div class="brand">
-					<img class="img-responsive center-block" src="{{ asset('razen-project/assets/images/clients/1.png') }}" alt="brand">
-				</div>
-			</div>
-			<!-- .col-md-2 end -->
-
-			<!-- Client Item -->
-			<div class="col-xs-12 col-sm-4 col-md-2">
-				<div class="brand">
-					<img class="img-responsive center-block" src="{{ asset('razen-project/assets/images/clients/2.png') }}" alt="brand">
-				</div>
-			</div>
-			<!-- .col-md-2 end -->
-
-			<!-- Client Item -->
-			<div class="col-xs-12 col-sm-4 col-md-2">
-				<div class="brand">
-					<img class="img-responsive center-block" src="{{ asset('razen-project/assets/images/clients/3.png') }}" alt="brand">
-				</div>
-			</div>
-			<!-- .col-md-2 end -->
-
-			<!-- Client Item -->
-			<div class="col-xs-12 col-sm-4 col-md-2">
-				<div class="brand">
-					<img class="img-responsive center-block" src="{{ asset('razen-project/assets/images/clients/4.png') }}" alt="brand">
-				</div>
-			</div>
-			<!-- .col-md-2 end -->
-
-			<!-- Client Item -->
-			<div class="col-xs-12 col-sm-4 col-md-2">
-				<div class="brand">
-					<img class="img-responsive center-block" src="{{ asset('razen-project/assets/images/clients/5.png') }}" alt="brand">
-				</div>
-			</div>
-			<!-- .col-md-2 end -->
-
-			<!-- Client Item -->
-			<div class="col-xs-12 col-sm-4 col-md-2">
-				<div class="brand last">
-					<img class="img-responsive center-block" src="{{ asset('razen-project/assets/images/clients/6.png') }}" alt="brand">
-				</div>
-			</div>
-			<!-- .col-md-2 end -->
+			@foreach ($clients as $client)
+                <!-- Client Item -->
+                <div class="col-xs-12 col-sm-4 col-md-2">
+                    <div class="brand">
+                        <img class="img-responsive center-block" src="{{ asset('images/razen-project/foto-client/'.$client->foto) }}" alt="brand">
+                    </div>
+                </div>
+                <!-- .col-md-2 end -->
+            @endforeach
 		</div>
 		<!-- .row End -->
 	</div>

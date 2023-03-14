@@ -115,7 +115,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">E-Commerce</a>
+                                    <a href="{{env('RAZEN_URL')}}">E-Commerce</a>
                                 </li>
 
                                 @if (request()->routeIs('proyek'))
@@ -125,8 +125,13 @@
                                 @endif
                                     <a href="{{ route('proyek') }}">Proyek</a>
                                 </li>
-                                <li>
-                                    <a href="#">Blog</a>
+
+                                @if (request()->routeIs('blog'))
+                                    <li class="active">
+                                @else
+                                    <li>
+                                @endif
+                                    <a href="{{ route('blog') }}">Blog</a>
                                 </li>
 
                                 @if (request()->routeIs('kontak'))
@@ -169,14 +174,14 @@
                                 <!-- .col-md-2 end -->
                                 <div class="col-xs-12 col-sm-12 col-md-7 cta-devider text-center-xs">
                                     <div class="cta-desc">
-                                        <p>Have Any Questions !</p>
-                                        <h5>Don’t Hesitate To Contact Us ANy Time.</h5>
+                                        <p>Ada pertanyaan !</p>
+                                        <h5>Jangan Ragu Untuk Menghubungi Kami Setiap Saat.</h5>
                                     </div>
                                 </div>
                                 <!-- .col-md-7 end -->
                                 <div class="col-xs-12 col-sm-12 col-md-2 pull-right pull-none-xs">
                                     <div class="cta-action">
-                                        <a class="btn btn-secondary"  target="blank" href="//api.whatsapp.com/send?phone={{preg_replace("/^0/","62", $profil->no_hp)}}&text=Halo kak, saya ingin membahas sebuah proyek">contact us</a>
+                                        <a class="btn btn-secondary"  target="blank" href="//api.whatsapp.com/send?phone={{preg_replace("/^0/","62", $profil->no_hp)}}&text=Halo kak, saya ingin membahas sebuah proyek">Kontak Kami</a>
                                     </div>
                                 </div>
                                 <!-- .col-md-2 end -->

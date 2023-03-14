@@ -85,4 +85,34 @@ Route::prefix('razen-project')->group(function(){
         Route::post('/edit-pivot-about','RazenProject\Admin\TentangPerusahaanController@edit_pivot_about')->name('razen-project.admin.tentang-perusahaan.edit_pivot_about');
         Route::post('/add-pivot-about','RazenProject\Admin\TentangPerusahaanController@add_pivot_about')->name('razen-project.admin.tentang-perusahaan.add_pivot_about');
     });
+
+    Route::prefix('master-jabatan-tim')->group(function (){
+        Route::get('/', 'RazenProject\Admin\Master\MasterJabatanTimController@index')->name('razen-project.admin.master-jabatan-tim.index');
+        Route::get('/detail/{id}', 'RazenProject\Admin\Master\MasterJabatanTimController@show');
+        Route::post('/','RazenProject\Admin\Master\MasterJabatanTimController@store')->name('razen-project.admin.master-jabatan-tim.store');
+        Route::get('/edit/{id}','RazenProject\Admin\Master\MasterJabatanTimController@edit');
+        Route::post('/update','RazenProject\Admin\Master\MasterJabatanTimController@update')->name('razen-project.admin.master-jabatan-tim.update');
+        Route::get('/destroy/{id}','RazenProject\Admin\Master\MasterJabatanTimController@destroy');
+    });
+
+    Route::prefix('tim')->group(function(){
+        Route::get('/', 'RazenProject\Admin\TimController@index')->name('razen-project.admin.tim.index');
+        Route::get('/create', 'RazenProject\Admin\TimController@create')->name('razen-project.admin.tim.create');
+        Route::post('/','RazenProject\Admin\TimController@store')->name('razen-project.admin.tim.store');
+        Route::get('/detail/{id}', 'RazenProject\Admin\TimController@detail')->name('razen-project.admin.tim.detail');
+        Route::get('/edit/{id}','RazenProject\Admin\TimController@edit')->name('razen-project.admin.tim.edit');
+        Route::post('/update/{id}','RazenProject\Admin\TimController@update')->name('razen-project.admin.tim.update');
+        Route::get('/delete/{id}', 'RazenProject\Admin\TimController@delete')->name('razen-project.admin.tim.delete');
+    });
+
+    Route::prefix('fitur-perusahaan')->group(function(){
+        Route::get('/', 'RazenProject\Admin\FiturPerusahaan@index')->name('razen-project.admin.fitur-perusahaan.index');
+        Route::get('/detail/{id}', 'RazenProject\Admin\FiturPerusahaan@show');
+        Route::post('/','RazenProject\Admin\FiturPerusahaan@store')->name('razen-project.admin.fitur-perusahaan.store');
+        Route::get('/edit/{id}','RazenProject\Admin\FiturPerusahaan@edit');
+        Route::post('/update','RazenProject\Admin\FiturPerusahaan@update')->name('razen-project.admin.fitur-perusahaan.update');
+        Route::get('/destroy/{id}','RazenProject\Admin\FiturPerusahaan@destroy');
+        Route::post('/edit-fitur-perusahaan', 'RazenProject\Admin\FiturPerusahaan@edit_fitur_perusahaan')->name('razen-project.admin.fitur-perusahaan.edit-fitur-perusahaan');
+        Route::post('/tambah-fitur-perusahaan', 'RazenProject\Admin\FiturPerusahaan@tambah_fitur_perusahaan')->name('razen-project.admin.fitur-perusahaan.tambah-fitur-perusahaan');
+    });
 });

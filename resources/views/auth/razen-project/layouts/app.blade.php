@@ -18,12 +18,10 @@
                             <div class="w-100 w-lg-75 w-xxl-50">
                                 <div>
                                     <div class="mb-5">
-                                        <h1 class="display-3 text-white">Multiple Niches</h1>
-                                        <h1 class="display-3 text-white">Ready for Your Project</h1>
+                                        <h1 class="display-3 text-white">Razen Project</h1>
                                     </div>
                                     <p class="h6 text-white lh-1-5 mb-5">
-                                        Dynamically target high-payoff intellectual capital for customized technologies. Objectively integrate emerging core competencies before
-                                        process-centric communities...
+                                        Razen Project berkembang dibidang jasa design dan konstruksi, terdiri dari design arsitektur, design interior, perencanaan struktur, serta pembuatan bangunan yang berlokasi di Pasar Rebo Jakarta Timur. Kami sebagai kontraktor mengerjakan proyek-proyek konstruksi dengan tepat waktu sesuai time schedule, standar kualitas yang kami berikan adalah yang terbaik.
                                     </p>
                                     <div class="mb-5">
                                         <a class="btn btn-lg btn-outline-white" href="{{ url('/') }}">Kembali</a>

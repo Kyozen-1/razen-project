@@ -5,20 +5,20 @@
 ============================================= -->
 <section class=" bg-overlay bg-overlay-gradient pb-0">
 	<div class="bg-section" >
-		<img src="assets/images/page-title/9.jpg" alt="Background"/>
+		<img src="{{ asset('razen-project/assets/images/page-title/9.jpg') }}" alt="Background"/>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="page-title title-1 text-center">
 					<div class="title-bg">
-						<h2>contact us</h2>
+						<h2>Kontak Kami</h2>
 					</div>
 					<ol class="breadcrumb">
 						<li>
-							<a href="index.html">Home</a>
+							<a href="{{ route('beranda') }}">Beranda</a>
 						</li>
-						<li class="active">contact</li>
+						<li class="active">Kontak</li>
 					</ol>
 				</div>
 				<!-- .page-title end -->
@@ -38,8 +38,8 @@
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="heading heading-4">
 					<div class="heading-bg heading-right">
-						<p class="mb-0">We Wanna Hear From You !</p>
-						<h2>Contact Us</h2>
+						<p class="mb-0">Kami Ingin Mendengar Dari Anda !</p>
+						<h2>Kontak Kami</h2>
 					</div>
 				</div>
 				<!-- .heading end -->
@@ -53,8 +53,8 @@
 								<i class="lnr lnr-map"></i>
 							</div>
 							<div class="widget-contact-info">
-								<p class="text-capitalize">visit us</p>
-								<p class="text-capitalize font-heading">tanta , alGharbia, egypt.</p>
+								<p class="text-capitalize">Kunjungi kami</p>
+								<p class="text-capitalize font-heading">{{$profil->alamat}}</p>
 							</div>
 						</div>
 						<!-- .widget end -->
@@ -65,8 +65,8 @@
 								<i class="lnr lnr-envelope"></i>
 							</div>
 							<div class="widget-contact-info">
-								<p class="text-capitalize ">email us</p>
-								<p class="text-capitalize font-heading">7oroof@7oroof.com</p>
+								<p class="text-capitalize ">Email Kami</p>
+								<p class="text-capitalize font-heading">{{$profil->email}}</p>
 							</div>
 						</div>
 						<!-- .widget end -->
@@ -77,8 +77,8 @@
 								<i class="lnr lnr-phone"></i>
 							</div>
 							<div class="widget-contact-info">
-								<p class="text-capitalize">call us</p>
-								<p class="text-capitalize font-heading">002 01065370701</p>
+								<p class="text-capitalize">Hubungi Kami</p>
+								<p class="text-capitalize font-heading">{{$profil->no_hp}}</p>
 							</div>
 						</div>
 						<!-- .widget end -->
@@ -86,24 +86,25 @@
 					<!-- .col-md-4 end -->
 					<div class="col-xs-12 col-sm-12 col-md-8">
 						<div class="row">
-							<form id="contact-form" action="assets/php/sendmail.php" method="post">
+							<form action="{{ route('kontak-kami') }}" method="post">
+                                @csrf
 								<div class="col-md-6">
-									<input type="text" class="form-control mb-30" name="contact-name" id="name" placeholder="Your Name" required/>
+									<input type="text" class="form-control mb-30" name="contact_name" id="name" placeholder="Nama anda" required/>
 								</div>
 								<div class="col-md-6">
-									<input type="email" class="form-control mb-30" name="contact-email" id="email" placeholder="Your Email" required/>
+									<input type="email" class="form-control mb-30" name="contact_email" id="email" placeholder="Email anda" required/>
 								</div>
 								<div class="col-md-6">
-									<input type="text" class="form-control mb-30" name="contact-telephone" id="telephone" placeholder="Telephone" required/>
+									<input type="text" class="form-control mb-30" name="contact_telephone" id="telephone" placeholder="No HP" required/>
 								</div>
 								<div class="col-md-6">
-									<input type="text" class="form-control mb-30" name="contact-subject" id="subject" placeholder="Subject" required/>
+									<input type="text" class="form-control mb-30" name="contact_subject" id="subject" placeholder="Subjek" required/>
 								</div>
 								<div class="col-md-12">
-									<textarea class="form-control mb-30" name="contact-message" id="message" rows="2" placeholder="Message Details" required></textarea>
+									<textarea class="form-control mb-30" name="contact-message" id="message" rows="2" placeholder="Detail Pesan" required></textarea>
 								</div>
 								<div class="col-md-12">
-									<button type="submit" id="submit-message" class="btn btn-primary btn-black btn-block">Send Message</button>
+									<button type="submit" id="submit-message" class="btn btn-primary btn-black btn-block">Kirim Pesan</button>
 								</div>
 								<div class="col-xs-12 col-sm-12 col-md-12 mt-xs">
 									<!--Alert Message-->
