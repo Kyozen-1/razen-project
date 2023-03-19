@@ -1,4 +1,11 @@
 @extends('landing-page-razen-project.layouts.app')
+@section('css')
+    <style>
+        .modal.modal-wide .modal-dialog {
+            width: 90%;
+        }
+    </style>
+@endsection
 
 @section('content')
     <!-- Hero #2
@@ -197,7 +204,7 @@
         <!-- .container end -->
     </section>
 
-    <div id="detail" class="modal fade">
+    <div id="detail" class="modal modal-wide fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -479,6 +486,7 @@
     <script>
         $('#btn_view_3d_model').click(function(){
             var kode = $(this).attr('data-kode');
+            $('#modal_body_3d_model').empty();
             $('#modal_body_3d_model').append(kode);
         });
     </script>

@@ -115,4 +115,13 @@ Route::prefix('razen-project')->group(function(){
         Route::post('/edit-fitur-perusahaan', 'RazenProject\Admin\FiturPerusahaan@edit_fitur_perusahaan')->name('razen-project.admin.fitur-perusahaan.edit-fitur-perusahaan');
         Route::post('/tambah-fitur-perusahaan', 'RazenProject\Admin\FiturPerusahaan@tambah_fitur_perusahaan')->name('razen-project.admin.fitur-perusahaan.tambah-fitur-perusahaan');
     });
+
+    Route::prefix('brosur')->group(function(){
+        Route::get('/', 'RazenProject\Admin\BrosurController@index')->name('razen-project.admin.brosur.index');
+        Route::get('/detail/{id}', 'RazenProject\Admin\BrosurController@show');
+        Route::post('/','RazenProject\Admin\BrosurController@store')->name('razen-project.admin.brosur.store');
+        Route::get('/edit/{id}','RazenProject\Admin\BrosurController@edit');
+        Route::post('/update','RazenProject\Admin\BrosurController@update')->name('razen-project.admin.brosur.update');
+        Route::get('/destroy/{id}','RazenProject\Admin\BrosurController@destroy');
+    });
 });

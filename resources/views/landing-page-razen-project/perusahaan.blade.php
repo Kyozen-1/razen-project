@@ -2,7 +2,7 @@
 
 @section('content')
 @php
-    use App\Models\RazenProject\Admin\PivotRazenProjectSectionTimMediaSosial;
+    use App\Models\RazenProject\Admin\PivotRazenProjectSectionTimMediaSosial as PivotTimMediaSosial;
 @endphp
 <!-- Page Title
 ============================================= -->
@@ -174,6 +174,9 @@
 			<div class="clearfix">
 			</div>
             @foreach ($tims as $tim)
+                @php
+                    $pivots = PivotTimMediaSosial::where('razen_project_section_tim_id', $tim->id)->get();
+                @endphp
                 <!-- Member #1 -->
                 <div class="col-xs-12 col-sm-6 col-md-3 member mb-0">
                     <div class="member-img">
@@ -181,9 +184,9 @@
                         <div class="member-bg">
                         </div>
                         <div class="member-overlay">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            @foreach ($pivots as $pivot)
+                                <a href="{{$pivot->tautan}}"><i class="{{$pivot->master_media_sosial->kode_ikon}}"></i></a>
+                            @endforeach
                         </div>
                     </div>
                     <!-- .member-img end -->

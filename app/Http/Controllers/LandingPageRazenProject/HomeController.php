@@ -34,6 +34,7 @@ use App\Models\RazenProject\Admin\PivotRazenProjectSectionTimMediaSosial;
 use App\Models\RazenProject\Admin\RazenProjectFiturPerusahaan;
 use App\Models\RazenProject\Admin\PivotFiturRazenProjectFiturPerusahaan;
 use App\Models\RazenProject\Admin\EmailBerlangganan;
+use App\Models\RazenProject\Admin\RazenProjectBrosur;
 
 class HomeController extends Controller
 {
@@ -154,10 +155,13 @@ class HomeController extends Controller
 
         $layanans = Layanan::all();
 
+        $brosurs = RazenProjectBrosur::where('status', '1')->get();
+
         return view('landing-page-razen-project.layanan', [
             'profil' => $profil,
             'get_pivot_media_sosials' => $get_pivot_media_sosials,
-            'layanans' => $layanans
+            'layanans' => $layanans,
+            'brosurs' => $brosurs
         ]);
     }
 

@@ -45,24 +45,11 @@
 							<li class="active">
 								<a href="#">All services</a>
 							</li>
-							<li>
-								<a href="#">Tiling &amp; Painting</a>
-							</li>
-							<li>
-								<a href="#">Renovations</a>
-							</li>
-							<li>
-								<a href="#">Design &amp; Build</a>
-							</li>
-							<li>
-								<a href="#">Consulting</a>
-							</li>
-							<li>
-								<a href="#">Management</a>
-							</li>
-							<li>
-								<a href="#">Wood Flooring</a>
-							</li>
+                            @foreach ($layanans as $layanan)
+                                <li>
+                                    <a href="#">{{$layanan->judul}}</a>
+                                </li>
+                            @endforeach
 						</ul>
 					</div>
 				</div>
@@ -71,47 +58,58 @@
 				============================================= -->
 				<div class="widget widget-download">
 					<div class="widget-title">
-						<h3>Download Brochures</h3>
+						<h3>Unduh Brosur</h3>
 					</div>
 					<div class="widget-content">
-						<div class="download download-pdf">
-							<a href="#">
-								<div class="download-desc">
-									<div class="download-desc-icon">
-										<img src="{{ asset('razen-project/assets/images/sidebar/1.png') }}" alt="icon"/>
-									</div>
-									<h4>Download.pdf</h4>
-								</div>
-								<div class="download-icon">
-									<i class="fa fa-download"></i>
-								</div>
-							</a>
-						</div>
-						<!-- .download-pdf end -->
+                        @foreach ($brosurs as $brosur)
+                            @if ($brosur->tipe == 'pdf')
+                                <div class="download download-pdf">
+                                    <a href="{{ asset('pdf/layanan/'. $brosur->nama) }}">
+                                        <div class="download-desc">
+                                            <div class="download-desc-icon">
+                                                <img src="{{ asset('razen-project/assets/images/sidebar/1.png') }}" alt="icon"/>
+                                            </div>
+                                            <h4>Unduh.pdf</h4>
+                                        </div>
+                                        <div class="download-icon">
+                                            <i class="fa fa-download"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- .download-pdf end -->
+                            @endif
 
-						<div class="download download-doc">
-							<a href="#">
-								<div class="download-desc">
-									<div class="download-desc-icon">
-										<img src="{{ asset('razen-project/assets/images/sidebar/2.png') }}" alt="icon"/>
-									</div>
-									<h4>Download.doc</h4>
-								</div>
-								<div class="download-icon">
-									<i class="fa fa-download"></i>
-								</div>
-							</a>
-						</div>
-						<!-- .download-pdf end -->
+                            @if ($brosur->tipe == 'docx')
+                                <div class="download download-doc">
+                                    <a href="{{ asset('docx/layanan/'. $brosur->nama) }}">
+                                        <div class="download-desc">
+                                            <div class="download-desc-icon">
+                                                <img src="{{ asset('razen-project/assets/images/sidebar/2.png') }}" alt="icon"/>
+                                            </div>
+                                            <h4>Unduh.docx</h4>
+                                        </div>
+                                        <div class="download-icon">
+                                            <i class="fa fa-download"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- .download-pdf end -->
+                            @endif
+                        @endforeach
 					</div>
 				</div>
 			</div>
 			<!-- .sidebar end -->
 			<div class="col-xs-12 col-sm-12 col-md-9">
-				<div class="row">
-                    @foreach ($layanans as $layanan)
-                        <!-- Service Block #1 -->
-                        <div class="col-xs-12 col-sm-6 col-md-4 service-block">
+                <?php
+                //Columns must be a factor of 12 (1,2,3,4,6,12)
+                $numOfCols = 3;
+                $rowCount = 0;
+                $bootstrapColWidth = 12 / $numOfCols;
+                foreach ($layanans as $layanan){
+                if($rowCount % $numOfCols == 0) { ?> <div class="row"> <?php }
+                    $rowCount++; ?>
+                        <div class="col-xs-12 col-sm-6 col-md-<?php echo $bootstrapColWidth; ?> service-block">
                             <div class="service-img">
                                 <img src="{{ asset('images/razen-project/gambar-layanan/'.$layanan->gambar) }}" class="img-responsive" alt="icons"/>
                             </div>
@@ -119,15 +117,11 @@
                                 <div class="service-desc">
                                     <h4>{{$layanan->judul}}</h4>
                                     <p>{{$layanan->deskripsi}}</p>
-                                    <a class="read-more" href="#"><i class="fa fa-plus"></i>
-                                        <span>read more</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- .col-md-4 end -->
-                    @endforeach
-				</div>
+                <?php
+                    if($rowCount % $numOfCols == 0) { ?> </div> <?php } } ?>
 				<!-- .row end -->
 			</div>
 			<!-- .col-md-9 end -->

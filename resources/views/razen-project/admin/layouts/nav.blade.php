@@ -122,7 +122,8 @@
                     @if (request()->routeIs('razen-project.admin.hero-slider.index') ||
                     request()->routeIs('razen-project.admin.layanan.index') ||
                     request()->routeIs('razen-project.admin.tentang-perusahaan.index') ||
-                    request()->routeIs('razen-project.admin.fitur-perusahaan.index'))
+                    request()->routeIs('razen-project.admin.fitur-perusahaan.index') ||
+                    request()->routeIs('razen-project.admin.brosur.index'))
                     <a href="#section" class="active">
                     @else
                     <a href="#section">
@@ -148,6 +149,16 @@
                                 <a href="{{ route('razen-project.admin.layanan.index') }}">
                             @endif
                                 <span class="label">Layanan</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            @if (request()->routeIs('razen-project.admin.brosur.index'))
+                                <a href="{{ route('razen-project.admin.brosur.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-project.admin.brosur.index') }}">
+                            @endif
+                                <span class="label">Brosur Layanan</span>
                             </a>
                         </li>
 
