@@ -89,28 +89,28 @@
 							<form action="{{ route('kontak-kami') }}" method="post">
                                 @csrf
 								<div class="col-md-6">
-									<input type="text" class="form-control mb-30" name="contact_name" id="name" placeholder="Nama anda" required/>
+									<input type="text" class="form-control mb-30" name="name" id="name" placeholder="Nama anda" required/>
 								</div>
 								<div class="col-md-6">
-									<input type="email" class="form-control mb-30" name="contact_email" id="email" placeholder="Email anda" required/>
+									<input type="email" class="form-control mb-30" name="email" id="email" placeholder="Email anda" required/>
 								</div>
 								<div class="col-md-6">
-									<input type="text" class="form-control mb-30" name="contact_telephone" id="telephone" placeholder="No HP" required/>
+									<input type="text" class="form-control mb-30" name="telephone" id="telephone" placeholder="No HP" required/>
 								</div>
 								<div class="col-md-6">
-									<input type="text" class="form-control mb-30" name="contact_subject" id="subject" placeholder="Subjek" required/>
+									<input type="text" class="form-control mb-30" name="subject" id="subject" placeholder="Subjek" required/>
 								</div>
 								<div class="col-md-12">
-									<textarea class="form-control mb-30" name="contact-message" id="message" rows="2" placeholder="Detail Pesan" required></textarea>
+									<textarea class="form-control mb-30" name="message" id="message" rows="2" placeholder="Detail Pesan" required></textarea>
 								</div>
 								<div class="col-md-12">
 									<button type="submit" id="submit-message" class="btn btn-primary btn-black btn-block">Kirim Pesan</button>
 								</div>
-								<div class="col-xs-12 col-sm-12 col-md-12 mt-xs">
+								{{-- <div class="col-xs-12 col-sm-12 col-md-12 mt-xs">
 									<!--Alert Message-->
 									<div id="contact-result">
 									</div>
-								</div>
+								</div> --}}
 							</form>
 						</div>
 					</div>
@@ -131,8 +131,13 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 pr-0 pl-0">
-				<div id="googleMap" style="width:100%;height:240px;">
-				</div>
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe width="100%" height="240" id="gmap_canvas" src="https://maps.google.com/maps?q=razen&t=&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <br>
+                        <style>.mapouter{position:relative;text-align:right;height:240px;width:100%;}</style>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

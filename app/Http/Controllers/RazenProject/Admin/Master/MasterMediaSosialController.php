@@ -63,6 +63,7 @@ class MasterMediaSosialController extends Controller
     {
         $errors = Validator::make($request->all(), [
             'nama' => 'required | max:255',
+            'kode_ikon' => 'required | max:255',
         ]);
 
         if($errors -> fails())
@@ -72,6 +73,7 @@ class MasterMediaSosialController extends Controller
 
         $master_media_sosial = new MasterMediaSosial;
         $master_media_sosial->nama = $request->nama;
+        $master_media_sosial->kode_ikon = $request->kode_ikon;
         $master_media_sosial->save();
 
         return response()->json(['success' => 'Berhasil menyimpan data']);
@@ -110,6 +112,7 @@ class MasterMediaSosialController extends Controller
     {
         $errors = Validator::make($request->all(), [
             'nama' => 'required | max:255',
+            'kode_ikon' => 'required | max:255',
         ]);
 
         if($errors -> fails())
@@ -119,6 +122,7 @@ class MasterMediaSosialController extends Controller
 
         $master_media_sosial = MasterMediaSosial::find($request->hidden_id);
         $master_media_sosial->nama = $request->nama;
+        $master_media_sosial->kode_ikon = $request->kode_ikon;
         $master_media_sosial->save();
 
         return response()->json(['success' => 'Berhasil merubah data']);

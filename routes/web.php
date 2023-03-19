@@ -34,6 +34,7 @@ Route::get('/proyek', 'LandingPageRazenProject\HomeController@proyek')->name('pr
 Route::get('/kontak', 'LandingPageRazenProject\HomeController@kontak')->name('kontak');
 Route::get('/blog', 'LandingPageRazenProject\HomeController@blog')->name('blog');
 Route::post('/kontak-kami', 'LandingPageRazenProject\HomeController@kontak_kami')->name('kontak-kami');
+Route::post('/email-berlangganan', 'LandingPageRazenProject\HomeController@email_berlangganan')->name('email-berlangganan');
 
 Route::group(['middleware' => 'auth:razen_project'], function(){
     @include('razen-project.php');

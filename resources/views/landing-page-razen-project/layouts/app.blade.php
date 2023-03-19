@@ -37,29 +37,9 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 text-right">
                             <ul class="list-inline top-widget">
                                 <li class="top-social">
-                                    @if ($facebook['status'] == 'ada')
-                                        <a href="{{$facebook['tautan']}}" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    @else
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    @endif
-
-                                    @if ($twitter['status'] == 'ada')
-                                        <a href="{{$twitter['tautan']}}" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    @else
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    @endif
-
-                                    @if ($instagram['status'] == 'ada')
-                                        <a href="{{$instagram['tautan']}}" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    @else
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    @endif
-
-                                    @if ($youtube['status'] == 'ada')
-                                        <a href="{{$youtube['tautan']}}" target="_blank"><i class="fa fa-youtube"></i></a>
-                                    @else
-                                        <a href="#"><i class="fa fa-youtube"></i></a>
-                                    @endif
+                                    @foreach ($get_pivot_media_sosials as $item)
+                                        <a href="{{$item->tautan}}" target="_blank"><i class="{{$item->master_media_sosial->kode_ikon}}"></i></a>
+                                    @endforeach
                                 </li>
                                 <li>
                                     <!-- Modal -->
@@ -116,6 +96,10 @@
 
                                 <li>
                                     <a href="{{env('RAZEN_URL')}}">E-Commerce</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">E-learning</a>
                                 </li>
 
                                 @if (request()->routeIs('proyek'))

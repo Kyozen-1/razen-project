@@ -33,6 +33,7 @@ use App\Models\RazenProject\Admin\RazenProjectSectionTim;
 use App\Models\RazenProject\Admin\PivotRazenProjectSectionTimMediaSosial;
 use App\Models\RazenProject\Admin\RazenProjectFiturPerusahaan;
 use App\Models\RazenProject\Admin\PivotFiturRazenProjectFiturPerusahaan;
+use App\Models\RazenProject\Admin\EmailBerlangganan;
 
 class HomeController extends Controller
 {
@@ -40,61 +41,7 @@ class HomeController extends Controller
     {
         $profil = ProfilRazenProject::first();
 
-        $cek_facebook = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 2)->first();
-        if($cek_facebook)
-        {
-            $facebook = [
-                'status' => 'ada',
-                'tautan' => $cek_facebook->tautan
-            ];
-        } else {
-            $facebook = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_twitter = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 3)->first();
-        if($cek_twitter)
-        {
-            $twitter = [
-                'status' => 'ada',
-                'tautan' => $cek_twitter->tautan
-            ];
-        } else {
-            $twitter = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_instagram = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 4)->first();
-        if($cek_instagram)
-        {
-            $instagram = [
-                'status' => 'ada',
-                'tautan' => $cek_instagram->tautan
-            ];
-        } else {
-            $instagram = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_youtube = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 5)->first();
-        if($cek_youtube)
-        {
-            $youtube = [
-                'status' => 'ada',
-                'tautan' => $cek_youtube->tautan
-            ];
-        } else {
-            $youtube = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
+        $get_pivot_media_sosials = PivotProfilRazenProjectMediaSosial::where('profil_razen_project_id', $profil->id)->get();
 
         $item_virtual_tours = ItemVirtualTour::all();
 
@@ -127,10 +74,7 @@ class HomeController extends Controller
 
         return view('landing-page-razen-project.index', [
             'profil' => $profil,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'instagram' => $instagram,
-            'youtube' => $youtube,
+            'get_pivot_media_sosials' => $get_pivot_media_sosials,
             'item_virtual_tours' => $item_virtual_tours,
             'kategori_project' => $kategori_project,
             'testimonials' => $testimonials,
@@ -146,61 +90,7 @@ class HomeController extends Controller
     {
         $profil = ProfilRazenProject::first();
 
-        $cek_facebook = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 2)->first();
-        if($cek_facebook)
-        {
-            $facebook = [
-                'status' => 'ada',
-                'tautan' => $cek_facebook->tautan
-            ];
-        } else {
-            $facebook = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_twitter = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 3)->first();
-        if($cek_twitter)
-        {
-            $twitter = [
-                'status' => 'ada',
-                'tautan' => $cek_twitter->tautan
-            ];
-        } else {
-            $twitter = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_instagram = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 4)->first();
-        if($cek_instagram)
-        {
-            $instagram = [
-                'status' => 'ada',
-                'tautan' => $cek_instagram->tautan
-            ];
-        } else {
-            $instagram = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_youtube = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 5)->first();
-        if($cek_youtube)
-        {
-            $youtube = [
-                'status' => 'ada',
-                'tautan' => $cek_youtube->tautan
-            ];
-        } else {
-            $youtube = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
+        $get_pivot_media_sosials = PivotProfilRazenProjectMediaSosial::where('profil_razen_project_id', $profil->id)->get();
 
         $about = About::first();
 
@@ -244,10 +134,7 @@ class HomeController extends Controller
 
         return view('landing-page-razen-project.perusahaan', [
             'profil' => $profil,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'instagram' => $instagram,
-            'youtube' => $youtube,
+            'get_pivot_media_sosials' => $get_pivot_media_sosials,
             'about' => $about,
             'pivot_about' => $pivot_about,
             'tims' => $tims,
@@ -263,70 +150,13 @@ class HomeController extends Controller
     {
         $profil = ProfilRazenProject::first();
 
-        $cek_facebook = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 2)->first();
-        if($cek_facebook)
-        {
-            $facebook = [
-                'status' => 'ada',
-                'tautan' => $cek_facebook->tautan
-            ];
-        } else {
-            $facebook = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_twitter = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 3)->first();
-        if($cek_twitter)
-        {
-            $twitter = [
-                'status' => 'ada',
-                'tautan' => $cek_twitter->tautan
-            ];
-        } else {
-            $twitter = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_instagram = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 4)->first();
-        if($cek_instagram)
-        {
-            $instagram = [
-                'status' => 'ada',
-                'tautan' => $cek_instagram->tautan
-            ];
-        } else {
-            $instagram = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_youtube = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 5)->first();
-        if($cek_youtube)
-        {
-            $youtube = [
-                'status' => 'ada',
-                'tautan' => $cek_youtube->tautan
-            ];
-        } else {
-            $youtube = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
+        $get_pivot_media_sosials = PivotProfilRazenProjectMediaSosial::where('profil_razen_project_id', $profil->id)->get();
 
         $layanans = Layanan::all();
 
         return view('landing-page-razen-project.layanan', [
             'profil' => $profil,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'instagram' => $instagram,
-            'youtube' => $youtube,
+            'get_pivot_media_sosials' => $get_pivot_media_sosials,
             'layanans' => $layanans
         ]);
     }
@@ -335,61 +165,7 @@ class HomeController extends Controller
     {
         $profil = ProfilRazenProject::first();
 
-        $cek_facebook = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 2)->first();
-        if($cek_facebook)
-        {
-            $facebook = [
-                'status' => 'ada',
-                'tautan' => $cek_facebook->tautan
-            ];
-        } else {
-            $facebook = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_twitter = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 3)->first();
-        if($cek_twitter)
-        {
-            $twitter = [
-                'status' => 'ada',
-                'tautan' => $cek_twitter->tautan
-            ];
-        } else {
-            $twitter = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_instagram = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 4)->first();
-        if($cek_instagram)
-        {
-            $instagram = [
-                'status' => 'ada',
-                'tautan' => $cek_instagram->tautan
-            ];
-        } else {
-            $instagram = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_youtube = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 5)->first();
-        if($cek_youtube)
-        {
-            $youtube = [
-                'status' => 'ada',
-                'tautan' => $cek_youtube->tautan
-            ];
-        } else {
-            $youtube = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
+        $get_pivot_media_sosials = PivotProfilRazenProjectMediaSosial::where('profil_razen_project_id', $profil->id)->get();
 
         $guzzleClient = new GuzzleHttpClient();
 
@@ -408,10 +184,7 @@ class HomeController extends Controller
 
         return view('landing-page-razen-project.proyek', [
             'profil' => $profil,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'instagram' => $instagram,
-            'youtube' => $youtube,
+            'get_pivot_media_sosials' => $get_pivot_media_sosials,
             'kategori_results' => $kategori_results,
             'produk_results' => $produk_results
         ]);
@@ -421,68 +194,11 @@ class HomeController extends Controller
     {
         $profil = ProfilRazenProject::first();
 
-        $cek_facebook = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 2)->first();
-        if($cek_facebook)
-        {
-            $facebook = [
-                'status' => 'ada',
-                'tautan' => $cek_facebook->tautan
-            ];
-        } else {
-            $facebook = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_twitter = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 3)->first();
-        if($cek_twitter)
-        {
-            $twitter = [
-                'status' => 'ada',
-                'tautan' => $cek_twitter->tautan
-            ];
-        } else {
-            $twitter = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_instagram = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 4)->first();
-        if($cek_instagram)
-        {
-            $instagram = [
-                'status' => 'ada',
-                'tautan' => $cek_instagram->tautan
-            ];
-        } else {
-            $instagram = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_youtube = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 5)->first();
-        if($cek_youtube)
-        {
-            $youtube = [
-                'status' => 'ada',
-                'tautan' => $cek_youtube->tautan
-            ];
-        } else {
-            $youtube = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
+        $get_pivot_media_sosials = PivotProfilRazenProjectMediaSosial::where('profil_razen_project_id', $profil->id)->get();
 
         return view('landing-page-razen-project.kontak', [
             'profil' => $profil,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'instagram' => $instagram,
-            'youtube' => $youtube
+            'get_pivot_media_sosials' => $get_pivot_media_sosials
         ]);
     }
 
@@ -490,81 +206,70 @@ class HomeController extends Controller
     {
         $profil = ProfilRazenProject::first();
 
-        $cek_facebook = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 2)->first();
-        if($cek_facebook)
-        {
-            $facebook = [
-                'status' => 'ada',
-                'tautan' => $cek_facebook->tautan
-            ];
-        } else {
-            $facebook = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_twitter = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 3)->first();
-        if($cek_twitter)
-        {
-            $twitter = [
-                'status' => 'ada',
-                'tautan' => $cek_twitter->tautan
-            ];
-        } else {
-            $twitter = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_instagram = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 4)->first();
-        if($cek_instagram)
-        {
-            $instagram = [
-                'status' => 'ada',
-                'tautan' => $cek_instagram->tautan
-            ];
-        } else {
-            $instagram = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
-
-        $cek_youtube = PivotProfilRazenProjectMediaSosial::where('master_media_sosial_id', 5)->first();
-        if($cek_youtube)
-        {
-            $youtube = [
-                'status' => 'ada',
-                'tautan' => $cek_youtube->tautan
-            ];
-        } else {
-            $youtube = [
-                'status' => 'tidak ada',
-                'tautan' => ''
-            ];
-        }
+        $get_pivot_media_sosials = PivotProfilRazenProjectMediaSosial::where('profil_razen_project_id', $profil->id)->get();
 
         return view('landing-page-razen-project.blog',[
             'profil' => $profil,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'instagram' => $instagram,
-            'youtube' => $youtube,
+            'get_pivot_media_sosials' => $get_pivot_media_sosials
         ]);
     }
 
     public function kontak_kami(Request $request)
     {
+        // dd($request->all());
         $profil = ProfilRazenProject::first();
-        $email = $request->contact_email;
-        Mail::to($profil->email)->send(new KontakKami($email));
-        return new JsonResponse(
-            [
-                'success' => true,
-                'message' => $request->contact_message
-            ], 200
-        );
+        // $email = $request->contact_email;
+        // Mail::to($profil->email)->send(new KontakKami($email));
+        // return new JsonResponse(
+        //     [
+        //         'success' => true,
+        //         'message' => $request->contact_message
+        //     ], 200
+        // );
+
+        $this->validate($request,[
+            'name' => 'required | max:255',
+            'email' => 'required | max:255',
+            'telephone' => 'required | max:255',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+
+        $data = [
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'body' => $request->message
+        ];
+
+        Mail::send('emails.kontak-kami', $data, function($message) use ($data){
+            $message->from($data['email']);
+            $message->to($profil->email, $profil->nama);
+            $message->subject($data['subject']);
+        });
+
+        // Mail::from($data['email'])->to('skadi1268@gmail.com', 'Fasco')->send(new KontakKami($data));
+
+        return redirect(route('kontak'));
+    }
+
+    public function email_berlangganan(Request $request)
+    {
+        $errors = Validator::make($request->all(), [
+            '_token' => 'required | max:255',
+            'email' => 'required | max:255',
+        ]);
+
+        if($errors -> fails())
+        {
+            Alert::error('Gagal', $errors->errors()->all());
+            return back();
+        }
+
+        $email_berlangganan = new EmailBerlangganan;
+        $email_berlangganan->email = $request->email;
+        $email_berlangganan->save();
+
+        Alert::success('Sukses', 'Berhasil berlangganan');
+        return back();
     }
 }

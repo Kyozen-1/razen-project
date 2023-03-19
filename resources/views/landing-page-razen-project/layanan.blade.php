@@ -78,7 +78,7 @@
 							<a href="#">
 								<div class="download-desc">
 									<div class="download-desc-icon">
-										<img src="assets/images/sidebar/1.png" alt="icon"/>
+										<img src="{{ asset('razen-project/assets/images/sidebar/1.png') }}" alt="icon"/>
 									</div>
 									<h4>Download.pdf</h4>
 								</div>
@@ -93,7 +93,7 @@
 							<a href="#">
 								<div class="download-desc">
 									<div class="download-desc-icon">
-										<img src="assets/images/sidebar/2.png" alt="icon"/>
+										<img src="{{ asset('razen-project/assets/images/sidebar/2.png') }}" alt="icon"/>
 									</div>
 									<h4>Download.doc</h4>
 								</div>

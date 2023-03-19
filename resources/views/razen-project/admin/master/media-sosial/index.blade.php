@@ -63,6 +63,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Kode Ikon</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -85,6 +86,10 @@
                         <div class="mb-3 position-relative form-group">
                             <label for="nama" class="control-label">Nama</label>
                             <input type="text" class="form-control" name="nama" id="nama" required>
+                        </div>
+                        <div class="mb-3 position-relative form-group">
+                            <label for="kode_ikon" class="control-label">Kode Ikon</label>
+                            <input type="text" class="form-control" name="kode_ikon" id="kode_ikon" required>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -109,6 +114,10 @@
                     <div class="form-group mb-3 position-relative">
                         <label for="detail_nama" class="control-label">Nama</label>
                         <input type="text" id="detail_nama" class="form-control" disabled>
+                    </div>
+                    <div class="form-group mb-3 position-relative">
+                        <label for="detail_kode_ikon" class="control-label">Kode Ikon</label>
+                        <input type="text" id="detail_kode_ikon" class="form-control" disabled>
                     </div>
                 </div>
             </div><!-- /.modal-content -->
@@ -170,6 +179,10 @@
                     {
                         data: 'nama',
                         name: 'nama'
+                    },
+                    {
+                        data: 'kode_ikon',
+                        name: 'kode_ikon'
                     },
                     {
                         data: 'aksi',
@@ -273,6 +286,7 @@
                 {
                     $('#detail-title').text('Detail Data');
                     $('#detail_nama').val(data.result.nama);
+                    $('#detail_kode_ikon').val(data.result.kode_ikon);
                     $('#detail').modal('show');
                 }
             });
@@ -287,6 +301,7 @@
                 success: function(data)
                 {
                     $('#nama').val(data.result.nama);
+                    $('#kode_ikon').val(data.result.kode_ikon);
                     $('#hidden_id').val(id);
                     $('.modal-title').text('Edit Data');
                     $('#aksi_button').text('Edit');
