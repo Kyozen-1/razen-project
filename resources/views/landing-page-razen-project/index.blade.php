@@ -32,7 +32,7 @@
                                         <h2>{{$hero_slider->title}}</h2>
                                     </div>
                                     <div class="slide-action">
-                                        <a class="btn btn-primary" href="{{route('perusahaan')}}">Baca lebih lanjut</a>
+                                        <a class="btn btn-primary" href="{{route('perusahaan')}}">lebih lanjut</a>
                                         <a class="btn btn-secondary pull-right" href="//api.whatsapp.com/send?phone={{preg_replace("/^0/","62", $profil->no_hp)}}&text=Halo kak, saya ingin membahas sebuah proyek">Ayo Mulai</a>
                                     </div>
                                 </div>

@@ -123,7 +123,7 @@
 <section class="section-img bg-gray">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6 col-content">
+			<div class="col-md-6 col-content" style="text-align: center">
 				<div class="heading heading-4 mb-lg">
 					<div class="heading-bg heading-right">
 						<p class="mb-0">{{$fitur_perusahaan->judul_pendek}}</p>
