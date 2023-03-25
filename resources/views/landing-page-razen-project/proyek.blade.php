@@ -1,5 +1,14 @@
 @extends('landing-page-razen-project.layouts.app')
 
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .modal.modal-wide .modal-dialog {
+        width: 90%;
+    }
+</style>
+@endsection
+
 @section('content')
 <section class="bg-overlay bg-overlay-gradient pb-0">
 	<div class="bg-section" >
@@ -75,21 +84,28 @@
                     foreach ($item->kategori_produk as $value) {
                         $kategori_produk .= strtolower($value) . ' ';
                     }
-
                 @endphp
                 <!-- Project Item #1 -->
                 <div class="col-xs-12 col-sm-6 col-md-4 project-item {{$kategori_produk}}">
                     <div class="project-img">
                         <img class="img-responsive" src="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}"/>
                         <div class="project-hover">
-                            <div class="project-meta">
+                            <div class="project-meta mb-5">
                                 <h4>
-                                    <a href="#">{{$item->nama}}</a>
+                                    <a href="{{preg_replace('#/+#','/',env('RAZEN_URL').$item->link)}}">{{$item->nama}}</a>
                                 </h4>
                             </div>
+                            <div class="row">
+                                <a href="#" style="margin-right: 5px" title="Dimensi Lahan: {{$item->razen_project->dimensi_lahan_x}}m x {{$item->razen_project->dimensi_lahan_y}}m"><i class="fas fa-industry"></i> {{$item->razen_project->dimensi_lahan_x}}m x {{$item->razen_project->dimensi_lahan_y}}m</a>
+                                <a href="#" style="margin-right: 5px" title="Luas Lahan: {{$item->razen_project->luas_lahan}} m2"><i class="fas fa-ruler-combined"></i> {{$item->razen_project->luas_lahan}}m2</a>
+                                <a href="#" style="margin-right: 5px" title="Luas Bangunan: {{$item->razen_project->luas_bangunan}} m2"><i class="fas fa-ruler-horizontal"></i> {{$item->razen_project->luas_bangunan}}m2</a>
+                                <a href="#" style="margin-right: 5px" title="Jumlah Lantai: {{$item->razen_project->jumlah_lantai}} buah"><i class="fas fa-home"></i> {{$item->razen_project->jumlah_lantai}}</a>
+                                <a href="#" style="margin-right: 5px" title="Kamar Tidur: {{$item->razen_project->kamar_tidur}} buah"><i class="fas fa-bed"></i> {{$item->razen_project->kamar_tidur}}</a>
+                                <a href="#" style="margin-right: 5px" title="Jumlah Toilet: {{$item->razen_project->jumlah_toilet}} buah"><i class="fas fa-toilet"></i> {{$item->razen_project->jumlah_toilet}}</a>
+                            </div>
                             <div class="project-zoom">
-                                <a class="img-popup mr-3" href="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" title="Preview"><i class="fa fa-plus"></i></a>
-                                <a type="button" data-toggle="modal" data-target="#detail" class="btn btn-icon" id="btn_view_3d_model" data-kode=""><i class="fa fa-eye"></i></a>
+                                <a class="img-popup mr-3" href="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" title="Preview"><i class="fa fa-search-plus"></i></a>
+                                <a type="button" data-toggle="modal" data-target="#detail" class="btn btn-icon" id="btn_view_3d_model" data-kode="{{$item->razen_project->kode_embed_virtual_model}}"><i class="fa fa-eye"></i></a>
                             </div>
                         </div>
                         <!-- .project-hover end -->
@@ -103,7 +119,7 @@
 	</div>
 	<!-- .container end -->
 </section>
-<div id="detail" class="modal fade">
+<div id="detail" class="modal modal-wide fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -118,6 +134,7 @@
 @endsection
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $('#btn_view_3d_model').click(function(){
             var kode = $(this).attr('data-kode');
