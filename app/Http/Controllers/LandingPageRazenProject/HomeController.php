@@ -73,6 +73,21 @@ class HomeController extends Controller
             ];
         }
 
+        $guzzleClient = new GuzzleHttpClient();
+
+        // $kategori = $guzzleClient->request('GET', 'http://127.0.0.1:8000/api/product/category', [
+        //     'debug' => true,
+        //     'verify' => false,
+        // ]);
+
+        // Kategori Produk
+        $kategori = $guzzleClient->get(env('RAZEN_URL').'api/product/category');
+        $kategori_results= json_decode($kategori->getBody())->data;
+
+        // Produk
+        $produk = $guzzleClient->get(env('RAZEN_URL').'api/product/razen-project/product');
+        $produk_results = json_decode($produk->getBody())->data;
+
         return view('landing-page-razen-project.index', [
             'profil' => $profil,
             'get_pivot_media_sosials' => $get_pivot_media_sosials,
@@ -83,7 +98,9 @@ class HomeController extends Controller
             'hero_sliders' => $hero_sliders,
             'layanans' => $layanans,
             'about' => $about,
-            'pivot_about' => $pivot_about
+            'pivot_about' => $pivot_about,
+            'kategori_results' => $kategori_results,
+            'produk_results' => $produk_results
         ]);
     }
 

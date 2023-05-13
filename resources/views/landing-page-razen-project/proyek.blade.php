@@ -49,21 +49,6 @@
 					<li>
 						<a class="active-filter" href="#" data-filter="*">All Projects</a>
 					</li>
-					{{-- <li>
-						<a href="#" data-filter=".interior">Interior</a>
-					</li>
-					<li>
-						<a href="#" data-filter=".renovation">Renovation</a>
-					</li>
-					<li>
-						<a href="#" data-filter=".architecture">Architecture</a>
-					</li>
-					<li>
-						<a href="#" data-filter=".landscaping">Landscaping</a>
-					</li>
-					<li>
-						<a href="#" data-filter=".gardening">Gardening</a>
-					</li> --}}
                     @foreach ($kategori_results as $kategori_result)
                         <li>
                             <a href="#" data-filter=".{{strtolower($kategori_result->name)}}">{{$kategori_result->name}}</a>
@@ -138,6 +123,7 @@
     <script>
         $('#btn_view_3d_model').click(function(){
             var kode = $(this).attr('data-kode');
+            $('#modal_body_3d_model').empty();
             $('#modal_body_3d_model').append(kode);
         });
     </script>

@@ -68,7 +68,7 @@
                         <span class="label">Dashboard</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     @if (request()->routeIs('razen-project.admin.item-virtual-tour.index'))
                         <a href="{{ route('razen-project.admin.item-virtual-tour.index') }}" class="active">
                     @else
@@ -77,7 +77,7 @@
                         <i data-acorn-icon="file-data" class="icon" data-acorn-size="18"></i>
                         <span class="label">Item Virtual Tour</span>
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     @if (request()->routeIs('razen-project.admin.profil.index'))
                         <a href="{{ route('razen-project.admin.profil.index') }}" class="active">
@@ -204,7 +204,7 @@
                                 <span class="label">Media Sosial</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             @if (request()->routeIs('razen-project.admin.master-kategori-project.index'))
                                 <a href="{{ route('razen-project.admin.master-kategori-project.index') }}" class="active">
                             @else
@@ -212,7 +212,7 @@
                             @endif
                                 <span class="label">Kategori Project</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             @if (request()->routeIs('razen-project.admin.master-jabatan-tim.index'))
                                 <a href="{{ route('razen-project.admin.master-jabatan-tim.index') }}" class="active">
