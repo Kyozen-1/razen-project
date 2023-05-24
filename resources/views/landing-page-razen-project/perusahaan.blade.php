@@ -101,7 +101,7 @@
             </div>
             <div class="col-xs-12 col-sm-4 col-md-3 hidden-xs">
                 <div class="feature">
-                    <img class="img-responsive" src="{{ asset('razen-project/assets/images/features/2.jpg') }}" alt="feature">
+                    <img class="img-responsive" src="{{ asset('images/razen-project/gambar-tentang-perusahaan/'.$about->gambar) }}" alt="feature">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-3">
