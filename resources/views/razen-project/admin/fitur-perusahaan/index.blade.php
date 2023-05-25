@@ -57,6 +57,7 @@
                         <label for="" class="small-title">Atur Fitur Perusahaan</label>
                     </div>
                     <div class="col-6" style="text-align: right">
+                        <a href="{{ route('perusahaan') }}#shortcode-3" class="btn btn-icon waves-effect waves-light btn-secondary mr-1" target="blank"><i class="fas fa-pager"></i> Preview</a>
                         <button class="btn btn-outline-primary waves-effect waves-light">Simpan Perubahan</button>
                     </div>
                 </div>

@@ -34,7 +34,7 @@
 ============================================= -->
 <section class="service service2 service-7 pb-0">
 	<div class="container">
-		<div class="row">
+		<div class="row" id="layanan-layanan">
 			<div class="sidebar sidebar-services sidebar-full col-xs-12 col-sm-12 col-md-3">
 
 				<!-- Categories
@@ -56,7 +56,7 @@
 
 				<!-- Download
 				============================================= -->
-				<div class="widget widget-download">
+				<div class="widget widget-download" id="unduh-brosur">
 					<div class="widget-title">
 						<h3>Unduh Brosur</h3>
 					</div>

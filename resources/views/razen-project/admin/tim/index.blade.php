@@ -50,7 +50,10 @@
 
     <!-- Content Start -->
     <div class="row mb-3">
-        <div class="col-12" style="text-align:right">
+        <div class="col-6" style="text-align:left">
+            <a href="{{ route('perusahaan') }}#teams" class="btn btn-icon waves-effect waves-light btn-secondary" target="blank"><i class="fas fa-pager"></i> Preview</a>
+        </div>
+        <div class="col-6" style="text-align:right">
             <a class="btn btn-outline-primary waves-effect waves-light mr-2 item_create" href="{{ route('razen-project.admin.tim.create') }}"><i class="fas fa-plus"></i></a>
         </div>
     </div>

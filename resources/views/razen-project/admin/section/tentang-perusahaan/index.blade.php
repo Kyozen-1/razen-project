@@ -56,6 +56,7 @@
                         <label for="" class="small-title">Atur Tentang Perusahaan</label>
                     </div>
                     <div class="col-6" style="text-align: right">
+                        <a href="{{ route('perusahaan') }}#shortcode-5" class="btn btn-icon waves-effect waves-light btn-secondary mr-1" target="blank"><i class="fas fa-pager"></i> Preview</a>
                         <button class="btn btn-outline-primary waves-effect waves-light">Simpan Perubahan</button>
                     </div>
                 </div>
@@ -126,6 +127,11 @@
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="row">
+                        <div class="col-12" style="text-align: right;">
+                            <button class="btn btn-danger waves-effect waves-light">Konfirmasi Hapus</button>
+                        </div>
                     </div>
                 </form>
             @else

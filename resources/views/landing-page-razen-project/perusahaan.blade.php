@@ -120,7 +120,7 @@
 
 <!-- Shortcode #3
 ============================================= -->
-<section class="section-img bg-gray">
+<section class="section-img bg-gray" id="shortcode-3">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-6 col-content" style="text-align: center">
@@ -158,7 +158,7 @@
 
 <!-- Team
 ============================================= -->
-<section class="team">
+<section id="teams" class="team">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">

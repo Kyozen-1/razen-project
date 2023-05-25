@@ -50,7 +50,10 @@
 
     <!-- Content Start -->
     <div class="row mb-3">
-        <div class="col-12" style="text-align:right">
+        <div class="col-6" style="text-align:left">
+            <a href="{{ route('layanan') }}#layanan-layanan" class="btn btn-icon waves-effect waves-light btn-secondary" target="blank"><i class="fas fa-pager"></i> Preview</a>
+        </div>
+        <div class="col-6" style="text-align:right">
             <button class="btn btn-outline-primary waves-effect waves-light mr-2 item_create" type="button" data-bs-toggle="modal" data-bs-target="#addEditModal" title="Tambah Data" id="create"><i class="fas fa-plus"></i></button>
         </div>
     </div>
