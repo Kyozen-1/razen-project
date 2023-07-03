@@ -181,7 +181,7 @@
                     @endphp
                     <!-- Project Item #1 -->
                     <div class="col-xs-12 col-sm-6 col-md-4 project-item {{$kategori_produk}}">
-                        <div class="project-img">
+                        <div class="project-img" style="min-height: 285px;">
                             <img class="img-responsive" src="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}"/>
                             <div class="project-hover">
                                 <div class="project-meta mb-5">
