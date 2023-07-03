@@ -190,16 +190,24 @@
                                     </h4>
                                 </div>
                                 <div class="row">
-                                    <a href="#" style="margin-right: 5px" title="Dimensi Lahan: {{$item->razen_project->dimensi_lahan_x}}m x {{$item->razen_project->dimensi_lahan_y}}m"><i class="fas fa-industry"></i> {{$item->razen_project->dimensi_lahan_x}}m x {{$item->razen_project->dimensi_lahan_y}}m</a>
-                                    <a href="#" style="margin-right: 5px" title="Luas Lahan: {{$item->razen_project->luas_lahan}} m2"><i class="fas fa-ruler-combined"></i> {{$item->razen_project->luas_lahan}}m2</a>
-                                    <a href="#" style="margin-right: 5px" title="Luas Bangunan: {{$item->razen_project->luas_bangunan}} m2"><i class="fas fa-ruler-horizontal"></i> {{$item->razen_project->luas_bangunan}}m2</a>
-                                    <a href="#" style="margin-right: 5px" title="Jumlah Lantai: {{$item->razen_project->jumlah_lantai}} buah"><i class="fas fa-home"></i> {{$item->razen_project->jumlah_lantai}}</a>
-                                    <a href="#" style="margin-right: 5px" title="Kamar Tidur: {{$item->razen_project->kamar_tidur}} buah"><i class="fas fa-bed"></i> {{$item->razen_project->kamar_tidur}}</a>
-                                    <a href="#" style="margin-right: 5px" title="Jumlah Toilet: {{$item->razen_project->jumlah_toilet}} buah"><i class="fas fa-toilet"></i> {{$item->razen_project->jumlah_toilet}}</a>
+                                    <div class="col-md-6 col-12 text text-left">
+                                        <p>
+                                            <a href="#">Dimensi Lahan: {{$item->razen_project->dimensi_lahan_x}}m x {{$item->razen_project->dimensi_lahan_y}}m</a><br>
+                                            <a href="#">Luas Lahan: {{$item->razen_project->luas_lahan}} m2</a><br>
+                                            <a href="#">Luas Bangunan: {{$item->razen_project->luas_bangunan}} m2</a><br>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 col-12 text text-left">
+                                        <p>
+                                            <a href="#">Jumlah Lantai: {{$item->razen_project->jumlah_lantai}} buah</a><br>
+                                            <a href="#">Kamar Tidur: {{$item->razen_project->kamar_tidur}} buah</a><br>
+                                            <a href="#">Jumlah Toilet: {{$item->razen_project->jumlah_toilet}} buah</a><br>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="project-zoom">
                                     <a class="img-popup mr-3" href="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" title="Preview"><i class="fa fa-search-plus"></i></a>
-                                    <a type="button" data-toggle="modal" data-target="#detail" class="btn btn-icon" id="btn_view_3d_model" data-kode="{{$item->razen_project->kode_embed_virtual_model}}"><i class="fa fa-eye"></i></a>
+                                    <a type="button" data-toggle="modal" data-target="#detail" class="btn btn-icon btn_view_3d_model" data-kode="{{$item->razen_project->kode_embed_virtual_model}}"><i class="fa fa-eye"></i></a>
                                 </div>
                             </div>
                             <!-- .project-hover end -->
@@ -496,7 +504,7 @@
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $('#btn_view_3d_model').click(function(){
+        $('.btn_view_3d_model').click(function(){
             var kode = $(this).attr('data-kode');
             $('#modal_body_3d_model').empty();
             $('#modal_body_3d_model').append(kode);
