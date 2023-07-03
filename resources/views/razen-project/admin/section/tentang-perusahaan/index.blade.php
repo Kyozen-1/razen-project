@@ -130,7 +130,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12" style="text-align: right;">
-                            <button class="btn btn-danger waves-effect waves-light">Konfirmasi Hapus</button>
+                            <button class="btn btn-danger waves-effect waves-light" type="button" id="btn_konfirmasi_hapus">Konfirmasi Hapus</button>
                         </div>
                     </div>
                 </form>
@@ -209,7 +209,8 @@
             $('div .col-pivot-about#'+id).remove();
         });
 
-        $('#edit_pivot_about_form').submit(function(e){
+        $('#btn_konfirmasi_hapus').click(function(e){
+
             e.preventDefault();
             return new swal({
                 title: "Apakah Anda Yakin?",
